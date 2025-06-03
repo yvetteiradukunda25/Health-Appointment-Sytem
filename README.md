@@ -12,36 +12,7 @@ Integrate Spring Security with JWT for authentication (without roles).
 Handle date-time data, form validation, and RESTful API design.
 Practice advanced database queries and filtering (e.g., appointments by date or doctor).
 Project Structure
-Organize your project by feature, where each feature (e.g., patient, doctor) has its own package containing the entity, repository,
-service, and controller. Hereʼs the example structure:
-1com.example.healthcaresystem
-2├── config
-3│   ├── SecurityConfig.java
-4│   ├── JwtUtil.java
-5│   ├── JwtFilter.java
-6├── patient
-7│   ├── Patient.java
-8│   ├── PatientRepository.java
-9│   ├── PatientService.java
-10│   ├── PatientController.java
-11├── doctor
-12│   ├── Doctor.java
-13│   ├── DoctorRepository.java
-14│   ├── DoctorService.java
-15│   ├── DoctorController.java
-16├── appointment
-17│   ├── Appointment.java
-18│   ├── AppointmentRepository.java
-19│   ├── AppointmentService.java
-20│   ├── AppointmentController.java
-21├── medicalrecord
-22│   ├── MedicalRecord.java
-23│   ├── MedicalRecordRepository.java
 
-Why Package-by-Feature?
-Keeps all code for a feature (e.g., Patient) in one place, making it easier to understand and maintain.
-Improves modularity, as each feature is self-contained.
-Reduces clutter compared to grouping by layer (e.g., all controllers in one package).
 
 Database Models
 Youʼll create six tables in PostgreSQL using JPA entities. Below are the models with their fields, constraints, and relationships.
@@ -66,22 +37,7 @@ id : Long (Primary Key, auto-generated)
 firstName : String (required, max 50 characters)
 lastName : String (required, max 50 characters)
 specialty : String (required, max 100 characters, e.g., "Cardiology") - Use Enums for clear and professional approach
-24│   ├── MedicalRecordService.java
-25│   ├── MedicalRecordController.java
-26├── clinic
-27│   ├── Clinic.java
-28│   ├── ClinicRepository.java
-29│   ├── ClinicService.java
-30│   ├── ClinicController.java
-31├── user
-32│   ├── User.java
-33│   ├── UserRepository.java
-34│   ├── UserService.java
-35│   ├── AuthController.java
-36├── dto
-37│   ├── LoginRequest.java
-38│   ├── RegisterRequest.java
-39
+
 email : String (required, unique, valid email format)
 clinic : Clinic  (many-to-one , a doctor works at one clinic)
 appointments : List (one-to-many , a doctor has many appointments)
