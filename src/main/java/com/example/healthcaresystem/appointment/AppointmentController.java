@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/appointments")
 @RequiredArgsConstructor
-@RequestMapping
-
 public class AppointmentController {
+
     private final AppointmentService appointmentService;
 
-    @PostMapping("/api/appointment")
+    // CREATE
+    @PostMapping
     public ResponseEntity<Appointment> createAppointment(@RequestBody AppointmentDto dto) {
         Appointment created = appointmentService.createAppointment(dto);
         return new ResponseEntity<>(created, HttpStatus.CREATED);

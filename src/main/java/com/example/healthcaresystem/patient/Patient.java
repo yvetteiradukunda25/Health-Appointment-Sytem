@@ -1,6 +1,11 @@
 package com.example.healthcaresystem.patient;
 
+<<<<<<< HEAD
 
+=======
+import com.example.healthcaresystem.appointment.Appointment;
+import com.example.healthcaresystem.clinic.Clinic;
+>>>>>>> 0e749a333005295295466a474a710474e77252fa
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Past;
 import lombok.*;
@@ -18,17 +23,31 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     @Column(length = 50, nullable = false)
     private String firstName;
+
     @Column(length = 50, nullable = false)
     private String lastName;
+
     @Column(unique = true, nullable = false)
     private String email;
-    @Column(length = 10, nullable = false)
+
+    @Column(length = 20, nullable = false)
     private String phone;
+
     @Column(nullable = false)
     @Past(message = "Date of birth must be in the past" )
     private LocalDate dateOfBirth;
+//
+//    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+//    private List<Appointment> appointments;
+//    @ManyToOne
+//    private Clinic clinic;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0e749a333005295295466a474a710474e77252fa
 
 }
