@@ -1,5 +1,7 @@
 package com.example.healthcaresystem.user;
 
-public class AuthController {
 
-    }
+public class UserDetailsService {
+
+
+}

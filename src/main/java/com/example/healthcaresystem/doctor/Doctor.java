@@ -25,6 +25,6 @@ public class Doctor {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
-    private List<Appointment> appointments;
+//    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+//    private List<Appointment> appointments;
 }
