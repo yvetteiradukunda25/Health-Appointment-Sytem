@@ -1,5 +1,4 @@
 package com.example.healthcaresystem.appointment;
 
-public class AppointmentRepository {
-
+public class AppointmentDto {
 }
