@@ -1,39 +1,39 @@
 package com.example.healthcaresystem.patient;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
-@RequiredArgsConstructor
+
 public class PatientService {
 
     private final PatientRepository patientRepository;
 
-    // Create a new patient
-    public Patient createPatient(Patient patient) {
-        Patient patient1 = new Patient();
-        patient1.setFirstName(patient.getFirstName());
-        patient1.setLastName(patient.getLastName());
-        patient1.setDateOfBirth(patient.getDateOfBirth());
-        patient1.setEmail(patient.getEmail());
-        return patientRepository.save(patient1);
+    public PatientService(PatientRepository patientRepository) {
+        this.patientRepository = patientRepository;
     }
-
-    // Get all patients
-    public List<Patient> getAllPatients() {
+    public Patient  CreatePatient(Patient patient) {
+        return patientRepository.save(patient);
+    }
+    public List<Patient> findAllPatient() {
         return patientRepository.findAll();
     }
-
-    // Get patient by ID
-    public Optional<Patient> getPatientById(Long id) {
-        return patientRepository.findById(id);
+    public Patient findPatientById(Long id) {
+        return patientRepository.findById(id).orElseThrow(null);
     }
-
-    // Delete patient by ID
-    public void deletePatientById(Long id) {
+    public Patient update(long id, PatientDto updatedPatient) {
+        Patient patient = patientRepository.findById(id).orElseThrow();new RuntimeException("User not found");
+        patient.setFirstName(updatedPatient.getFirstName());
+        patient.setLastName(updatedPatient.getLastName());
+        patient.setEmail(updatedPatient.getEmail());
+        patient.setPhone(updatedPatient.getPhone());
+        patient.setDateOfBirth(updatedPatient.getDateOfBirth());
+        return patientRepository.save(patient);
+    }
+    public void deletePatientById(long id) {
+        Patient patient = patientRepository.findById(id).orElseThrow(null);new RuntimeException("User not found");
         patientRepository.deleteById(id);
     }
 }

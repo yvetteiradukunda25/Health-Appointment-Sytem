@@ -1,5 +1,6 @@
 package com.example.healthcaresystem.appointment;
 
+
 import com.example.healthcaresystem.doctor.Doctor;
 import com.example.healthcaresystem.patient.Patient;
 import jakarta.persistence.*;
@@ -17,14 +18,6 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
-
-    @ManyToOne
-    @JoinColumn(name = "doctor_id")
-    private Doctor doctor;
-
     @Future
     @NotNull
     private LocalDateTime appointmentDate;
@@ -34,4 +27,14 @@ public class Appointment {
 
     @Size(max = 500)
     private String notes;
+
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
+
+
 }
