@@ -8,11 +8,10 @@ package com.example.healthcaresystem.user;
 //
 //@Service
 public class UserService {
-<<<<<<< HEAD
 
 }
 
-=======
+
 //    private final UserRepository userRepository;
 //    private final BCryptPasswordEncoder passwordEncoder;
 //
@@ -39,5 +38,3 @@ public class UserService {
 //                .filter(user -> passwordEncoder.matches(request.getPassword(), user.getPassword()))
 //                .orElseThrow(() -> new RuntimeException("Invalid email or password"));
 //    }
-}
->>>>>>> 0e749a333005295295466a474a710474e77252fa

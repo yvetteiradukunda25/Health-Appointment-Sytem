@@ -1,11 +1,8 @@
 package com.example.healthcaresystem.patient;
 
-<<<<<<< HEAD
-
-=======
 import com.example.healthcaresystem.appointment.Appointment;
 import com.example.healthcaresystem.clinic.Clinic;
->>>>>>> 0e749a333005295295466a474a710474e77252fa
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Past;
 import lombok.*;
@@ -44,10 +41,5 @@ public class Patient {
 //    private List<Appointment> appointments;
 //    @ManyToOne
 //    private Clinic clinic;
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 0e749a333005295295466a474a710474e77252fa
 
 }

@@ -1,12 +1,6 @@
 package com.example.healthcaresystem.dto;
 
-<<<<<<< HEAD
 
-public class RegisterRequest {
-
-
-}
-=======
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -30,4 +24,3 @@ public class RegisterRequest {
     @NotBlank
     private String password;
 }
->>>>>>> 0e749a333005295295466a474a710474e77252fa
