@@ -2,6 +2,8 @@ package com.example.healthcaresystem.appointment;
 
 //import com.example.healthcaresystem.doctor.Doctor;
 //import com.example.healthcaresystem.patient.Patient;
+import com.example.healthcaresystem.doctor.Doctor;
+import com.example.healthcaresystem.patient.Patient;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
@@ -19,13 +21,13 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "patient_id")
-//    private Patient patient;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "doctor_id")
-//    private Doctor doctor;
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
 
     @Future
     @NotNull

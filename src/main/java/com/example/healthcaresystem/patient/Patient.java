@@ -35,11 +35,11 @@ public class Patient {
     @Column(nullable = false)
     @Past(message = "Date of birth must be in the past" )
     private LocalDate dateOfBirth;
-//
-//    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-//    private List<Appointment> appointments;
-//    @ManyToOne
-//    private Clinic clinic;
+
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+    private List<Appointment> appointments;
+    @ManyToOne
+    private Clinic clinic;
 
 
 
