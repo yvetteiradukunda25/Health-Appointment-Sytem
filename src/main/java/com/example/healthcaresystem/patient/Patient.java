@@ -2,12 +2,14 @@ package com.example.healthcaresystem.patient;
 
 import com.example.healthcaresystem.appointment.Appointment;
 import com.example.healthcaresystem.clinic.Clinic;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Past;
 import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
+
 
 @Entity
 @Getter
@@ -35,12 +37,10 @@ public class Patient {
     @Column(nullable = false)
     @Past(message = "Date of birth must be in the past" )
     private LocalDate dateOfBirth;
-
+//
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private List<Appointment> appointments;
     @ManyToOne
     private Clinic clinic;
-
-
 
 }

@@ -1,7 +1,5 @@
 package com.example.healthcaresystem.appointment;
 
-//import com.example.healthcaresystem.doctor.Doctor;
-//import com.example.healthcaresystem.patient.Patient;
 import com.example.healthcaresystem.doctor.Doctor;
 import com.example.healthcaresystem.patient.Patient;
 import jakarta.persistence.*;
@@ -10,13 +8,11 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Setter
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name ="appointments")
 public class Appointment {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
