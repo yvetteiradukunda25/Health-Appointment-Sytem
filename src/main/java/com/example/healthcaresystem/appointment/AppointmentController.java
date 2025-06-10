@@ -1,5 +1,6 @@
 package com.example.healthcaresystem.appointment;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/appointments")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "auth")
 public class AppointmentController {
 
     private final AppointmentService appointmentService;

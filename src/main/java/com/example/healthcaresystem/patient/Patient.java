@@ -4,6 +4,7 @@ import com.example.healthcaresystem.appointment.Appointment;
 import com.example.healthcaresystem.clinic.Clinic;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Past;
 import lombok.*;
 
@@ -28,6 +29,7 @@ public class Patient {
     @Column(length = 50, nullable = false)
     private String lastName;
 
+    @Email(message="Invalid email")
     @Column(unique = true, nullable = false)
     private String email;
 
@@ -37,10 +39,11 @@ public class Patient {
     @Column(nullable = false)
     @Past(message = "Date of birth must be in the past" )
     private LocalDate dateOfBirth;
-//
+
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private List<Appointment> appointments;
     @ManyToOne
+
     private Clinic clinic;
 
 }

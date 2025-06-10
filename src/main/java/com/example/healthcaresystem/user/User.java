@@ -1,16 +1,14 @@
 package com.example.healthcaresystem.user;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
-import java.util.List;
+import java.util.Collections;
 
 @Getter
 @Setter
@@ -36,6 +34,7 @@ public class User implements UserDetails {
     @Column(nullable = false, length = 50)
     private String lastName;
 
+    @Email(message = "Invalid email")
     @Column(nullable = false, unique = true, length = 100)
     private String email;
 
@@ -43,8 +42,8 @@ public class User implements UserDetails {
     private String password;
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+    public Collection<? extends org.springframework.security.core.GrantedAuthority> getAuthorities() {
+        return Collections.emptyList();
     }
 
     @Override

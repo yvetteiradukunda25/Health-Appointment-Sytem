@@ -1,14 +1,15 @@
 package com.example.healthcaresystem.doctor;
 
 import com.example.healthcaresystem.appointment.Appointment;
+import com.example.healthcaresystem.clinic.Clinic;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.Email;
+import lombok.*;
 
 import java.util.List;
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "doctor")
@@ -22,10 +23,17 @@ public class Doctor {
     private String lastName;
     @Column(length = 100, nullable = false)
     private String specialty;
+
+    @Email(message = "Invalid email")
     @Column(unique = true, nullable = false)
     private String email;
 
 
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
     private List<Appointment> appointments;
+
+    @ManyToOne
+    @JoinColumn(name = "clinic_id")
+    private Clinic clinic;
+
 }

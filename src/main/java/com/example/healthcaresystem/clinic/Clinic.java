@@ -1,10 +1,14 @@
 package com.example.healthcaresystem.clinic;
 
+import com.example.healthcaresystem.doctor.Doctor;
+import com.example.healthcaresystem.patient.Patient;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Setter
@@ -26,9 +30,10 @@ public class Clinic {
     @Column(nullable = false,length = 20, unique = true)
     private String phone;
 
-//    @OneToMany(mappedBy = "clinic", cascade = CascadeType.ALL)
-//    private List<Patient> patient;
-//    @OneToMany(mappedBy = "clinic ", cascade = CascadeType.ALL)
-//    private List<Doctor> doctor ;
+    @OneToMany(mappedBy = "clinic", cascade = CascadeType.ALL)
+    private List<Patient> patient;
+
+    @OneToMany(mappedBy = "clinic", cascade = CascadeType.ALL)
+    private List<Doctor> doctor ;
 
 }
